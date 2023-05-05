@@ -1,0 +1,13 @@
+#!/bin/bash -l        
+#SBATCH --time=3:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+#SBATCH --mem=16g
+#SBATCH --tmp=30g
+#SBATCH --mail-type=ALL  
+#SBATCH --mail-user=rishabh@umn.edu
+#SBATCH -J full_model_X
+module load python3
+source activate my_tensorflow_env
+cd ~/DecFocSurrMod/pooling_problem
+python3 ~/DecFocSurrMod/pooling_problem/nn_data/nn_small/nn_results.py > nn_data/nn_small/full_model_X.txt
